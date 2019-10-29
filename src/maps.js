@@ -86,6 +86,21 @@ const maps = [{
     },
   },
   {
+    name: "HERE WeGo",
+    category: MAIN_CATEGORY,
+    domain: "https://wego.here.com",
+    getUrl(lat, lon, zoom) {
+      return 'https://wego.here.com/?x=ep&map=' + lat + ',' + lon + ',' + zoom+',satellite';
+    },
+    getLatLonZoom(url) {
+      const match = url.match(/www\.openstreetmap\.org.*map=(\d{1,2})\/(-?\d[0-9.]*)\/(-?\d[0-9.]*)/);
+      if (match) {
+        const [, zoom, lat, lon] = match;
+        return [lat, lon, zoom];
+      }
+    },
+  },
+  {
     name: "Mapillary",
     category: MAIN_CATEGORY,
     domain: "www.mapillary.com",
