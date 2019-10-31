@@ -3,6 +3,8 @@ Map service switcher for Chrome/Firefox extension
 
 Greatly contributed by jazzzz. Thanks!
 
+This repository is mainly being developed as part of an assignment for INTI International College.
+
 ## Install
 This extention uses Node.js
 1. Install Node.js if needed
