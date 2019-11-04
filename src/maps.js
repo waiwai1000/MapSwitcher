@@ -93,11 +93,17 @@ const maps = [{
       return 'https://wego.here.com/?map=' + lat + ',' + lon + ',' + zoom+',normal';
     },
     getLatLonZoom(url) {
-      let match;
-      if (match = url.match(/wego\.here\.com.*map=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2}),normal&x=ep/)) {
-        const [, lat, lon, zoom] = match;
-        return [lat, lon, zoom];
-      }
+       let match;
+      if (match = url.match(/wego\.here\.com.*map=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2}),normal&x=ep/)) {
+        const [, lat, lon, zoom] = match;
+        return [lat, lon, zoom];
+      } else if (match = url.match(/wego\.here\.com.*map=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2}),normal/)){
+        let [,lat,lon,zoom] = match;
+        return [lat,lon,zoom];
+      } else if (match = url.match(/wego\.here\.com.*map=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2}),satellite/)){
+        let [,lat,lon,zoom] = match;
+        return [lat,lon,zoom];
+      }
     },
   },
   {
