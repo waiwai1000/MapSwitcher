@@ -109,6 +109,9 @@ const maps = [{
       } else if (match = url.match(/wego\.here\.com.*map=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2}),public_transport/)){
         let [,lat,lon,zoom] = match;
         return [lat,lon,zoom];
+      } else if (match = url.match(/wego\.here\.com.*map=(-?\d[0-9.]*),(-?\d[0-9.]*),(\d{1,2}),traffic/)){
+        let [,lat,lon,zoom] = match;
+        return [lat,lon,zoom];
       }
     },
   },
